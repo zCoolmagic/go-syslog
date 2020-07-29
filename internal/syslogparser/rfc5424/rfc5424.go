@@ -243,8 +243,10 @@ func (p *Parser) parseHostname() (string, error) {
 }
 
 // APP-NAME = NILVALUE / 1*48PRINTUSASCII
+// 2020-07-28 zCoolmagic change length application name for Docker tags
+// incompability features
 func (p *Parser) parseAppName() (string, error) {
-	return parseUpToLen(p.buff, &p.cursor, p.l, 48, ErrInvalidAppName)
+	return parseUpToLen(p.buff, &p.cursor, p.l, 255, ErrInvalidAppName)
 }
 
 // PROCID = NILVALUE / 1*128PRINTUSASCII
