@@ -1,7 +1,7 @@
 package syslog
 
 import (
-	"gopkg.in/zCoolmagic/go-syslog/format"
+	"github.com/zCoolmagic/go-syslog/format"
 )
 
 //The handler receive every syslog entry at Handle method
