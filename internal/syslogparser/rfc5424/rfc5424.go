@@ -243,8 +243,8 @@ func (p *Parser) parseHostname() (string, error) {
 }
 
 // APP-NAME = NILVALUE / 1*48PRINTUSASCII
-// 2020-07-28 zCoolmagic change length application name for Docker tags
-// incompability features
+// [!!!!] 2020-07-28 zCoolmagic change length application name for Docker tags
+// [!!!!] incompability features
 func (p *Parser) parseAppName() (string, error) {
 	return parseUpToLen(p.buff, &p.cursor, p.l, 255, ErrInvalidAppName)
 }
@@ -255,8 +255,10 @@ func (p *Parser) parseProcId() (string, error) {
 }
 
 // MSGID = NILVALUE / 1*32PRINTUSASCII
+// [!!!!] 2020-07-28 zCoolmagic change length application name for Docker tags
+// [!!!!] incompability features
 func (p *Parser) parseMsgId() (string, error) {
-	return parseUpToLen(p.buff, &p.cursor, p.l, 32, ErrInvalidMsgId)
+	return parseUpToLen(p.buff, &p.cursor, p.l, 255, ErrInvalidMsgId)
 }
 
 func (p *Parser) parseStructuredData() (string, error) {
